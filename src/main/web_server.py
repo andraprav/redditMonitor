@@ -21,8 +21,8 @@ def items():
     query = {'subreddit': subreddit, 'date': {'$gt': float(t1), '$lt': float(t2)}}
     if (keyword):
         query['text'] = {'$regex': keyword}
-    result = dumps(mongo.db.items.find(query).sort('date', pymongo.DESCENDING))
-    return result
+    result = mongo.db.items.find(query).sort('date', pymongo.DESCENDING)
+    return dumps(result)
 
 
 if __name__ == '__main__':
