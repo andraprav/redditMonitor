@@ -1,1 +1,2 @@
-src/main/praw.ini
+src/main/monitor/praw.ini
+*.pyc
