@@ -9,7 +9,7 @@ db = database.DatabaseConfig()
 reddit = praw.Reddit('monitor')
 with open(cst.INPUT_FILENAME) as data_file:
     subreddits = json.load(data_file)
-
+helper = helpers.Helper()
 while True:
-    helpers.loop_subreddits(subreddits, reddit, db)
+    helper.loop_subreddits(subreddits, reddit, db)
     time.sleep(cst.script_limits['SLEEP_SECS'])
