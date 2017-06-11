@@ -1,10 +1,12 @@
-To start the web server run the web_server.py
-To start the redit monitor run monitor.py
+To start the app:
+docker-compose build
+docker-compose up
+you need a praw.ini file in monitor folder.
 
-To modify the list of reddits, modify subreddits.json in resources, or replace it with another file and modify
+To modify the list of reddits, modify subreddits.json, or replace it with another file and modify
 accordingly in constants.py its name.
 
-The script get 1 new submission every second, to modify those limits edit
+The script gets 1 new submission every second, to modify those limits edit
     "NEW_LIMIT": 1 - for how many new submissions
     "SLEEP_SECS": 1 - time to sleep between querying all subreddits again
 in constants.py
