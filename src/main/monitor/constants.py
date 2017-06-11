@@ -5,4 +5,4 @@ script_limits = {
     "NEW_LIMIT": 1,
     "SLEEP_SECS": 1
 }
-INPUT_FILENAME = '../resources/subreddits.json'
+INPUT_FILENAME = 'subreddits.json'

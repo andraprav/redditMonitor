@@ -1,0 +1,20 @@
+version: '2'
+services:
+  web:
+    build: ./web_server
+    command: python -u web_server/web_server.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/server
+    depends_on:
+      - db
+  db:
+    build: ./db
+    ports:
+      - "27017:27017"
+  monitor:
+    build: ./monitor
+    command: python -u monitor.py
+    depends_on:
+      - db

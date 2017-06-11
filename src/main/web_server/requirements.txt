@@ -1,0 +1,4 @@
+Flask==0.12.2
+bson
+flask_pymongo
+pymongo==3.4.0

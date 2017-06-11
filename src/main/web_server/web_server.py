@@ -1,13 +1,14 @@
-from flask import Flask
-from flask import request
-from bson.json_util import dumps
-from flask_pymongo import PyMongo
 import pymongo
+from bson.json_util import dumps
+from flask import Flask
 from flask import abort
+from flask import request
+from pymongo import MongoClient
 
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'test'
-mongo = PyMongo(app, config_prefix='MONGO')
+client = MongoClient("mongodb://db:27017")
+db = client.test
 
 
 @app.route('/items/', methods=['GET'])
@@ -21,9 +22,9 @@ def items():
     query = {'subreddit': subreddit, 'date': {'$gt': float(t1), '$lt': float(t2)}}
     if (keyword):
         query['text'] = {'$regex': keyword}
-    result = mongo.db.items.find(query).sort('date', pymongo.DESCENDING)
+    result = db.items.find(query).sort('date', pymongo.DESCENDING)
     return dumps(result)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run('0.0.0.0')
