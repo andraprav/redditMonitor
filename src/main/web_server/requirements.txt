@@ -1,4 +1,4 @@
-Flask==1.0
+Flask==2.2.5
 bson
 flask_pymongo
 pymongo==3.4.0
